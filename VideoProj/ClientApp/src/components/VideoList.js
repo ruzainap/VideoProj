@@ -33,7 +33,7 @@ export const VideoList = () => {
                 <div>
                         {videos.map((video) => <li key={video.id}>
                             <div className="ratio ratio-16x9">
-                                <iframe src={ video.videoLinks} title="YouTube video" allowfullscreen></iframe>
+                                <iframe src={ video.videoLinks} title="YouTube video1" allowfullscreen></iframe>
                             </div>
                         </li>)}
                         
