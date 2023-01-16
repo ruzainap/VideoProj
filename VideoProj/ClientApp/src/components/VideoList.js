@@ -1,5 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
-import {Container } from 'react-bootstrap'
+
+import { Container } from 'react-bootstrap'
+
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import axios from "axios";
 export const VideoList = () => {
@@ -30,17 +32,17 @@ export const VideoList = () => {
                     <br />
                 </section>
             ) : (
-                <div>
-                        {videos.map((video) => <li key={video.id}>
-                            <div className="ratio ratio-16x9">
+                    <div class="col-6 col-md-4"                                                                                                                                                                                                         >
+                        {videos.map((video) => <ul key={video.id}>
+                            <div class="row">
                                 <iframe src={ video.videoLinks} title="YouTube video1" allowfullscreen></iframe>
                             </div>
-                        </li>)}
+                        </ul>)}
                         
-                       
-                        )}
-                </div>
                     
+
+                        )
+                    </div>
             
                     
                 )
