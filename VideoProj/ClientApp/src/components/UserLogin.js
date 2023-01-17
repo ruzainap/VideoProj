@@ -5,6 +5,7 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 export const UserLogin = () => {
 
     const [email, setEmail] = useState("");
+    const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [errMsg, setErrMsg] = useState("");
     const [success, setSuccess] = useState("");
@@ -14,9 +15,12 @@ export const UserLogin = () => {
 
         const fetchData = async () => {
             try {
-                const response = await fetch('/api/Users');
-                //const json = await response.json();
+                const response = await fetch('/api/users/1');
+                const json = await response.json();
                 console.log(response);
+                setUser(json);
+                setSuccess(true)
+
             } catch (error) {
                 console.log("error", error);
             }
@@ -44,15 +48,17 @@ export const UserLogin = () => {
 
 
     const handleRegister = (e) => {
-        const res = axios.post('api/Users', e);
+        const res = axios.post('api/users', e);
         setResponse(res);
     }
 
     return (
         <>
             {success ? (
+              
+
                 <section>
-                    <h1>You are loggedIn</h1>
+                    <h4> Welcome {user.email}</h4>
                     <br />
                 </section>
             ) : (

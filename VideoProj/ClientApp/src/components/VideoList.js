@@ -16,6 +16,7 @@ export const VideoList = () => {
                 const response = await fetch('/api/videos');
                 const json = await response.json();
                 setVideos(json);
+                console.log(json);
             } catch (error) {
                 console.log("error", error);
             }
@@ -26,27 +27,13 @@ export const VideoList = () => {
 
     return (
         <>
-            {success ? (
-                <section>
-                    <h1>You are loggedIn</h1>
-                    <br />
-                </section>
-            ) : (
-                    <div class="col-6 col-md-4"                                                                                                                                                                                                         >
+             <div className="col-6 col-md-4"                                                                                                                                                                                                         >
                         {videos.map((video) => <ul key={video.id}>
-                            <div class="row">
-                                <iframe src={ video.videoLinks} title="YouTube video1" allowfullscreen></iframe>
+                            <div className="row">
+                                <iframe src={ video.videoLinks} title="YouTube video1" allowFullScreen></iframe>
                             </div>
                         </ul>)}
-                        
-                    
-
-                        )
                     </div>
-            
-                    
-                )
-            }
            
         </>
         )

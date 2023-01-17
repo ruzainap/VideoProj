@@ -23,7 +23,7 @@ export class NavMenu extends Component {
                     <Header.Content>Funny Movies</Header.Content>
 
                 </Header>
-                {/* <Header as='h4' floated='right'> <UserLogin /></Header>*/}
+                 <Header as='h4' floated='right'> <UserLogin /></Header>
               
             </Segment>
             <VideoList />

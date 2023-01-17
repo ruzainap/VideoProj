@@ -15,6 +15,7 @@ namespace VideoProj.Controllers
         {
             _context = context;
         }
+
         // GET: api/Videos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Video>>> GetVideos()
@@ -22,6 +23,16 @@ namespace VideoProj.Controllers
 
             var test = await _context.Videos.ToListAsync();
             return Ok(test);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<Video>> PostVideo(Video video)
+        {
+
+            _context.Videos.Add(video);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetVideo", new { id = video.Id }, video);
         }
     }
 }
